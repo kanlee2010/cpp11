@@ -4,9 +4,15 @@
 #include "pch.h"
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
-    std::cout << "Hello World!\n"; 
+    cout << "Range based for\n"; 
+	int NumberList[5] = { 1, 2, 3, 4, 5 };
+	for (const auto& i : NumberList) {
+		cout << i << endl;
+	}
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
