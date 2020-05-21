@@ -8,6 +8,7 @@
 #include <list>
 #include <vector>
 #include <deque>
+#include "CToyClass.h"
 
 using namespace std;
 
@@ -42,6 +43,15 @@ int main()
 	std::list<int> NumberList = { 1, 2, 3, 4, 5 };
 	std::vector<int> NumberVector = { 1, 2, 3, 4, 5 };
 	std::deque<int> NumberDeque = { 1, 2, 3, 4, 5 };
+
+	Car car(100, 200, 1900);
+	Robot robot(50000, 300, 1950);
+	CToyClass *pToyClass = nullptr;
+	pToyClass = &car;
+	pToyClass->Show();
+	pToyClass = &robot;
+	pToyClass->Show();
+	
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
