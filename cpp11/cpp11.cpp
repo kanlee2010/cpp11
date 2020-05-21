@@ -2,17 +2,46 @@
 //
 
 #include "pch.h"
-#include <iostream>
+#include <iostream> //cout, 
+#include <array>
+#include <algorithm>
+#include <list>
+#include <vector>
+#include <deque>
 
 using namespace std;
 
+void disp(const int& n)
+{
+	cout << n << endl;
+}
+
 int main()
 {
-    cout << "Range based for\n"; 
-	int NumberList[5] = { 1, 2, 3, 4, 5 };
-	for (const auto& i : NumberList) {
+    cout << "range based for\n"; 
+	int c_array[5] = { 1, 2, 3, 4, 5 };
+	for (const auto& i : c_array) {
 		cout << i << endl;
 	}
+
+	cout << "for_each & array\n";
+	std::array<int, 5> NumberArray = { 1, 2, 3, 4, 5 };
+	std::for_each(NumberArray.begin(), NumberArray.end(), disp);
+	int *iptr = NumberArray.data();
+	cout << *(iptr + 1) << "," << *(iptr + 2) << endl;
+
+	cout << "for_each & struct\n";
+	struct Sum {
+		Sum() { sum = 0; }
+		void operator()(int n) { sum += n; }
+		int sum;
+	};
+	Sum s = std::for_each(NumberArray.begin(), NumberArray.end(), Sum());
+	cout << s.sum << endl;
+
+	std::list<int> NumberList = { 1, 2, 3, 4, 5 };
+	std::vector<int> NumberVector = { 1, 2, 3, 4, 5 };
+	std::deque<int> NumberDeque = { 1, 2, 3, 4, 5 };
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
