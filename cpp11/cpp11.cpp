@@ -8,7 +8,6 @@
 #include <list>
 #include <vector>
 #include <deque>
-#include "CToyClass.h"
 
 using namespace std;
 
@@ -17,8 +16,13 @@ void disp(const int& n)
 	cout << n << endl;
 }
 
+extern void class_test(void);
+extern void stream_test(void);
+
 int main()
 {
+	class_test();
+	stream_test();
     cout << "range based for\n"; 
 	int c_array[5] = { 1, 2, 3, 4, 5 };
 	for (const auto& i : c_array) {
@@ -42,16 +46,7 @@ int main()
 
 	std::list<int> NumberList = { 1, 2, 3, 4, 5 };
 	std::vector<int> NumberVector = { 1, 2, 3, 4, 5 };
-	std::deque<int> NumberDeque = { 1, 2, 3, 4, 5 };
-
-	Car car(100, 200, 1900);
-	Robot robot(50000, 300, 1950);
-	CToyClass *pToyClass = nullptr;
-	pToyClass = &car;
-	pToyClass->Show();
-	pToyClass = &robot;
-	pToyClass->Show();
-	
+	std::deque<int> NumberDeque = { 1, 2, 3, 4, 5 };	
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
